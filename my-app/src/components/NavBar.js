@@ -14,6 +14,10 @@ const Navbar = () => {
     navigate(`/document/${uniqueId}`);
   };
 
+  const handleVideoEditingClick = ()=>{
+    navigate('/VideoHomePage')
+  }
+
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "#4B0082", boxShadow: "none" }}>
       <Container>
@@ -27,6 +31,7 @@ const Navbar = () => {
               margin: "0 10px",
               "&:hover": { backgroundColor: "#B39DDB" }, // Slightly darker on hover
             }}
+            onClick={handleVideoEditingClick}
           >
             Video Conferencing
           </Button>
