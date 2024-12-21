@@ -1,0 +1,61 @@
+/* Ensure the container covers the whole screen */
+.container-fluid {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Style the button container */
+  .button-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Make the buttons huge */
+  button {
+    font-size: 1.5rem;
+    padding: 20px 40px;
+    min-width: 200px;
+  }
+  
+  /* Position the four buttons in the corners */
+  .corner-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(10%, 10%);
+  }
+  
+  .corner-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-10%, 10%);
+  }
+  
+  .corner-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(10%, -10%);
+  }
+  
+  .corner-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-10%, -10%);
+  }
+  
+  /* Position the center button */
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem; /* Bigger font size for center button */
+  }
+  
