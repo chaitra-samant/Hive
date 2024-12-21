@@ -3,10 +3,14 @@
 }
 
 body {
-    background-color: #2C2C2C; /* Greyish-black background */
+    background-color: #F9F9F9; /* Lighter grey background for the whole page */
     font-family: 'Arial', sans-serif;
     margin: 0;
-    color: #E0E0E0; /* Light grey text for contrast */
+    color: #333333; /* Dark text color for readability */
+}
+
+.container {
+    padding-top: 2rem; /* Add space between the navbar and the editor */
 }
 
 .container .ql-editor {
@@ -14,11 +18,11 @@ body {
     height: 11in;
     padding: 1in;
     margin: 1rem;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3); /* Slight shadow for depth */
-    background-color: #FFEB7D; /* Light honey color for the text area */
-    border-radius: 10px; /* Rounded corners for a soft effect */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #FFFFFF; /* White background for the text area */
+    border-radius: 8px; /* Rounded corners for a softer effect */
     font-size: 16px;
-    color: #3D3D3D; /* Dark text color for the editor */
+    color: #333333; /* Dark text for readability */
 }
 
 .container .ql-container.ql-snow {
@@ -33,10 +37,10 @@ body {
     z-index: 1;
     position: sticky;
     top: 0;
-    background-color: #FFCA28; /* Yellowish honey-like background for toolbar */
+    background-color: #F0F0F0; /* Very light grey for the toolbar */
     border: none;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3); /* Shadow effect for depth */
-    border-radius: 10px; /* Rounded toolbar for smoother look */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded toolbar for smoother look */
     padding: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -55,7 +59,7 @@ body {
         height: 9in;
         padding: 0;
         margin: 0;
-        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
         align-self: flex-start;
     }
 
@@ -64,45 +68,45 @@ body {
     }
 }
 
-/* Styling for the font sizes (with a slight honey-colored theme) */
+/* Styling for the font sizes with light, neutral colors */
 .ql-size-10px {
     font-size: 10px;
-    color: #3D3D3D;
+    color: #333333; /* Dark grey for readability */
 }
 
 .ql-size-12px {
     font-size: 12px;
-    color: #3D3D3D;
+    color: #333333; /* Dark grey for readability */
 }
 
 .ql-size-14px {
     font-size: 14px;
-    color: #3D3D3D;
+    color: #333333; /* Dark grey for readability */
 }
 
 .ql-size-16px {
     font-size: 16px;
-    color: #3D3D3D;
+    color: #333333; /* Dark grey for readability */
 }
 
 .ql-size-18px {
     font-size: 18px;
-    color: #3D3D3D;
+    color: #333333; /* Dark grey for readability */
 }
 
 .ql-size-20px {
     font-size: 20px;
-    color: #3D3D3D;
+    color: #333333; /* Dark grey for readability */
 }
 
 .ql-size-24px {
     font-size: 24px;
-    color: #3D3D3D;
+    color: #333333; /* Dark grey for readability */
 }
 
-/* Honeycomb background effect (for the editor and toolbar) */
+/* Subtle background pattern for the editor */
 .container .ql-editor {
-    background-image: url('https://your-image-link.com/honeycomb-pattern.png');
+    background-image: url('https://your-image-link.com/neutral-pattern.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -110,16 +114,16 @@ body {
 
 /* Hover effect for toolbar buttons */
 .ql-toolbar button:hover {
-    background-color: #FFB74D; /* Lighter yellow on hover */
+    background-color: #DDDDDD; /* Lighter grey hover effect */
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Adjusting button styles to be more bee-like */
+/* Adjusting button styles to be more sleek */
 .ql-toolbar button {
-    background-color: #FFEB3B; /* Honey yellow */
-    color: #3D3D3D; /* Dark text for readability */
+    background-color: #F0F0F0; /* Light grey background */
+    color: #333333; /* Dark text for contrast */
     border-radius: 5px;
     padding: 8px 15px;
     font-size: 16px;
@@ -128,28 +132,27 @@ body {
 }
 
 .ql-toolbar button.ql-active {
-    background-color: #FF9800; /* Slightly darker yellow for active buttons */
+    background-color: #BDBDBD; /* Slightly darker grey for active buttons */
 }
 
-/* Customizing the background color for the font size dropdown */
+/* Customizing the font size dropdown */
 .ql-picker.ql-size .ql-picker-label {
-    background-color: #FFEB7D; /* Lighter honey color for background */
-    color: #3D3D3D;
+    background-color: #F0F0F0; /* Light grey background for font size dropdown */
+    color: #333333; /* Dark grey text */
 }
 
-/* Style the font size dropdown to look like bee hive theme */
+/* Style the font size dropdown options */
 .ql-picker.ql-size .ql-picker-options {
-    background-color: #FFEB7D; /* Match with the editor background */
+    background-color: #F0F0F0; /* Light grey background */
     border-radius: 5px;
 }
 
-/* Customize the text color inside the editor to be dark for better readability */
+/* Ensure the text color in the editor is dark for readability */
 .ql-editor {
-    color: #3D3D3D; /* Dark text for readability */
+    color: #333333; /* Dark grey text for readability */
 }
 
 /* Customizing the font family */
 .ql-editor, .ql-toolbar button {
     font-family: 'Arial', sans-serif; /* Clean sans-serif font for easy reading */
 }
-

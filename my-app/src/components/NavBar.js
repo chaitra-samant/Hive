@@ -18,6 +18,10 @@ const Navbar = () => {
     navigate('/VideoHomePage')
   }
 
+  const handleFunGameClick = ()=>{
+    navigate('/GameLandingpage')
+  }
+
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "#4B0082", boxShadow: "none" }}>
       <Container>
@@ -69,6 +73,7 @@ const Navbar = () => {
               margin: "0 10px",
               "&:hover": { backgroundColor: "#E64A19" }, // Slightly darker on hover
             }}
+            onClick={handleFunGameClick}
           >
             Fun Games
           </Button>
