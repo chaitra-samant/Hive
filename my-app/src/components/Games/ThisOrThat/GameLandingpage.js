@@ -10,7 +10,7 @@ const GamesLandingPage = () => {
   };
 
   return (
-    <div className="landing-page">
+    <div className="landing-page" >
       <h1 className="title">Games Section</h1>
       <div className="cards-container">
         {/* Tic-Tac-Toe Card */}

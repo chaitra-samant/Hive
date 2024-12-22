@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #F9F9F9; /* Lighter grey background for the whole page */
+    background-color: #000; /* Black background for the whole page */
     font-family: 'Arial', sans-serif;
     margin: 0;
     color: #333333; /* Dark text color for readability */
@@ -19,10 +19,10 @@ body {
     padding: 1in;
     margin: 1rem;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    background-color: #FFFFFF; /* White background for the text area */
+    background-color: #D3D3D3; /* Light grey background for the text area */
     border-radius: 8px; /* Rounded corners for a softer effect */
     font-size: 16px;
-    color: #333333; /* Dark text for readability */
+    color: #000000; /* Black text color for readability */
 }
 
 .container .ql-container.ql-snow {
@@ -71,45 +71,37 @@ body {
 /* Styling for the font sizes with light, neutral colors */
 .ql-size-10px {
     font-size: 10px;
-    color: #333333; /* Dark grey for readability */
+    color: #000000; /* Black text */
 }
 
 .ql-size-12px {
     font-size: 12px;
-    color: #333333; /* Dark grey for readability */
+    color: #000000; /* Black text */
 }
 
 .ql-size-14px {
     font-size: 14px;
-    color: #333333; /* Dark grey for readability */
+    color: #000000; /* Black text */
 }
 
 .ql-size-16px {
     font-size: 16px;
-    color: #333333; /* Dark grey for readability */
+    color: #000000; /* Black text */
 }
 
 .ql-size-18px {
     font-size: 18px;
-    color: #333333; /* Dark grey for readability */
+    color: #000000; /* Black text */
 }
 
 .ql-size-20px {
     font-size: 20px;
-    color: #333333; /* Dark grey for readability */
+    color: #000000; /* Black text */
 }
 
 .ql-size-24px {
     font-size: 24px;
-    color: #333333; /* Dark grey for readability */
-}
-
-/* Subtle background pattern for the editor */
-.container .ql-editor {
-    background-image: url('https://your-image-link.com/neutral-pattern.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    color: #000000; /* Black text */
 }
 
 /* Hover effect for toolbar buttons */
@@ -143,13 +135,13 @@ body {
 
 /* Style the font size dropdown options */
 .ql-picker.ql-size .ql-picker-options {
-    background-color: #F0F0F0; /* Light grey background */
+    background-color: #000; /* Light grey background */
     border-radius: 5px;
 }
 
-/* Ensure the text color in the editor is dark for readability */
+/* Ensure the text color in the editor is black for readability */
 .ql-editor {
-    color: #333333; /* Dark grey text for readability */
+    color: #000000; /* Black text color */
 }
 
 /* Customizing the font family */
