@@ -1,7 +1,7 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+import express from "express";
+import mongoose from "mongoose";
+import bodyParser from "body-parser";
+import cors from "cors";
 
 // Initialize app
 const app = express();
@@ -22,7 +22,6 @@ db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", async () => {
   console.log("Connected to MongoDB");
 
-  // Seed the database with 5 random tasks if empty
   const taskCount = await Task.countDocuments();
   if (taskCount === 0) {
     const randomTasks = generateRandomTasks(5);
@@ -41,8 +40,6 @@ const taskSchema = new mongoose.Schema({
 const Task = mongoose.model("Task", taskSchema);
 
 // Routes
-
-// Get all tasks
 app.get("/api/tasks", async (req, res) => {
   try {
     const tasks = await Task.find();
@@ -52,14 +49,13 @@ app.get("/api/tasks", async (req, res) => {
   }
 });
 
-// Add a new task
 app.post("/api/tasks", async (req, res) => {
   const { task, deadline, column } = req.body;
 
   const newTask = new Task({
     task,
     deadline,
-    column: column || "todo", // Default to "todo" column
+    column: column || "todo",
   });
 
   try {
@@ -70,7 +66,6 @@ app.post("/api/tasks", async (req, res) => {
   }
 });
 
-// Update task column
 app.put("/api/tasks/:id", async (req, res) => {
   const { column } = req.body;
   try {
@@ -85,7 +80,6 @@ app.put("/api/tasks/:id", async (req, res) => {
   }
 });
 
-// Delete a task
 app.delete("/api/tasks/:id", async (req, res) => {
   try {
     const deletedTask = await Task.findByIdAndDelete(req.params.id);
@@ -95,7 +89,6 @@ app.delete("/api/tasks/:id", async (req, res) => {
   }
 });
 
-// Utility function to generate random tasks
 function generateRandomTasks(numTasks) {
   const taskNames = [
     "Design Homepage",
@@ -111,10 +104,10 @@ function generateRandomTasks(numTasks) {
   ];
 
   const randomDates = () => {
-    const randomDays = Math.floor(Math.random() * 30) + 1; // Random day within the next 30 days
+    const randomDays = Math.floor(Math.random() * 30) + 1;
     const randomDate = new Date();
     randomDate.setDate(randomDate.getDate() + randomDays);
-    return randomDate.toISOString().split("T")[0]; // Format date as YYYY-MM-DD
+    return randomDate.toISOString().split("T")[0];
   };
 
   const columns = ["todo", "inProgress", "done"];
