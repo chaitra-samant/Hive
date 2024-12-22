@@ -26,6 +26,10 @@ const Navbar = () => {
     navigate("/"); // Navigates to the homepage
   };
 
+  const HandleTeamChatClick = ()=>{
+    window.location.href = 'http://localhost:3000';
+  }
+
   return (
     <AppBar
       position="sticky"
@@ -111,6 +115,7 @@ const Navbar = () => {
                 padding: "8px 16px",
                 "&:hover": { backgroundColor: "#FFEFC7" },
               }}
+              onClick={HandleTeamChatClick}
             >
               Chat
             </Button>

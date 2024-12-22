@@ -7,6 +7,7 @@ import RoomPage from "./pages/Room-index.jsx";
 import GamesLandingpage from "./components/Games/ThisOrThat/GameLandingpage.js";
 import React from "react";
 import KanbanBoard from "./KanbanBoard.js"; // Adjust the path as necessary
+import Client from "./components/chatApp/client/Client.js"
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
           <Route path="/room/:roomId" element={<RoomPage />} />
           <Route path="/document/:id" element={<TextEditor />} />
           <Route path="/GameLandingpage" element={<GamesLandingpage />} />
-
+          <Route path = "/TeamChatPage" element = {<Client/>}/>
           <Route path="/" element={<KanbanBoard />} />
         </Routes>
       </div>
