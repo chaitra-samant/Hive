@@ -1,0 +1,66 @@
+/* App.css */
+
+.bee-hive-background {
+    background-color: #ffcc00; /* Bee yellow */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .button-container {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button {
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #f0a500; /* Slightly darker yellow */
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #d98e00; /* Darker yellow on hover */
+  }
+  
+  .corner-top-left {
+    top: 0;
+    left: 0;
+    transform: translate(10%, 10%);
+  }
+  
+  .corner-top-right {
+    top: 0;
+    right: 0;
+    transform: translate(-10%, 10%);
+  }
+  
+  .corner-bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: translate(10%, -10%);
+  }
+  
+  .corner-bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(-10%, -10%);
+  }
+  
+  .center {
+    background-color: #f9d14b; /* Lighter yellow for the center button */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
