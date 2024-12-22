@@ -3,6 +3,7 @@ import Quill from "quill";
 import "quill/dist/quill.snow.css";
 import { io } from "socket.io-client";
 import { useParams } from "react-router-dom";
+import { Document, Packer, Paragraph, TextRun } from "docx"; // Import docx library
 
 const SAVE_INTERVAL_MS = 2000;
 const TOOLBAR_OPTIONS = [
@@ -18,11 +19,11 @@ const TOOLBAR_OPTIONS = [
   [{ size: ["10px", "12px", "14px", "16px", "18px", "20px", "24px"] }], // Font size options
 ];
 
-
 export default function TextEditor() {
   const { id: documentId } = useParams();
   const [socket, setSocket] = useState(null);
   const [quill, setQuill] = useState(null);
+  const [editorHeight, setEditorHeight] = useState("calc(100vh - 60px)"); // Adjusting the editor height
 
   // Set up socket connection
   useEffect(() => {
@@ -30,15 +31,17 @@ export default function TextEditor() {
     setSocket(s);
 
     return () => {
-      s.disconnect();
+      if (s) {
+        s.disconnect(); // Clean up socket connection when component unmounts
+      }
     };
   }, []);
 
   // Initialize Quill editor when wrapper is set
-  const wrapperRef = useCallback(wrapper => {
-    if (wrapper == null) return;
+  const wrapperRef = useCallback((wrapper) => {
+    if (wrapper == null || quill) return;  // Avoid re-initializing if `quill` is already set
 
-    wrapper.innerHTML = "";
+    wrapper.innerHTML = "";  // Clear any existing content
     const editor = document.createElement("div");
     wrapper.append(editor);
 
@@ -50,13 +53,13 @@ export default function TextEditor() {
     q.disable(); // Start with Quill disabled
     q.setText("Loading..."); // Show loading text
     setQuill(q); // Set the Quill instance once it's created
-  }, []);
+  }, [quill]);  // Only re-run if `quill` is not set
 
   // Fetch document once quill and socket are set
   useEffect(() => {
     if (socket == null || quill == null) return;
 
-    socket.once("load-document", document => {
+    socket.once("load-document", (document) => {
       console.log("Document loaded:", document);
       quill.setContents(document); // Set document content
       quill.enable(); // Enable Quill for editing
@@ -75,7 +78,7 @@ export default function TextEditor() {
     }, SAVE_INTERVAL_MS);
 
     return () => {
-      clearInterval(interval);
+      clearInterval(interval); // Clean up auto-save interval
     };
   }, [socket, quill]);
 
@@ -91,7 +94,7 @@ export default function TextEditor() {
     socket.on("receive-changes", handler);
 
     return () => {
-      socket.off("receive-changes", handler);
+      socket.off("receive-changes", handler); // Clean up the event listener
     };
   }, [socket, quill]);
 
@@ -108,9 +111,69 @@ export default function TextEditor() {
     quill.on("text-change", handler);
 
     return () => {
-      quill.off("text-change", handler);
+      quill.off("text-change", handler); // Clean up the event listener
     };
   }, [socket, quill]);
 
-  return <div className="container" ref={wrapperRef}></div>;
+  // Function to handle saving the document as a .docx file
+  const handleSaveAsDocx = () => {
+    if (!quill) return;
+
+    const content = quill.getText(); // Get the text content from Quill
+    const doc = new Document({
+      sections: [
+        {
+          properties: {},
+          children: [
+            new Paragraph({
+              children: content.split("\n").map((line, index) => {
+                return new TextRun(line + (index !== content.split("\n").length - 1 ? "\n" : ""));
+              }),
+            }),
+          ],
+        },
+      ],
+    });
+
+    Packer.toBlob(doc).then((blob) => {
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${documentId}.docx`;
+      link.click();
+      window.URL.revokeObjectURL(url);
+    });
+  };
+
+  return (
+    <div
+      className="container"
+      ref={wrapperRef}
+      style={{
+        position: "relative",
+        width: "100%",
+        height: editorHeight, // Ensure the container has enough height
+      }}
+    >
+      <div style={{ height: "100%" }} />
+      {/* Save Button at the bottom of the page */}
+      <div
+        style={{
+          position: "relative",
+          bottom: 0,
+          padding: "10px 15px",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          textAlign: "center",
+          marginTop: "20px",
+        }}
+        onClick={handleSaveAsDocx}
+      >
+        Save as .docx
+      </div>
+    </div>
+  );
 }

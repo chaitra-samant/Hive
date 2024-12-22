@@ -1,107 +1,125 @@
 /* GamesLandingPage.css */
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: black;
-    color: yellow;
-  }
-  
-  .landing-page {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  /* From Uiverse.io by Pravins01 */ 
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: #4B0082;
+}
+
+.landing-page {
+  text-align: center;
+  padding: 40px 20px;  /* Added more padding to give more room for the cards */
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;  /* Increased the gap between cards */
+  margin-top: 40px;  /* Added margin to create more space around the cards */
+}
+
+/* Updated Card Styles */
 .card {
-    position: relative;
-    width: 190px;
-    height: 254px;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding: 12px;
-    gap: 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-  }
-  
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    left: -5px;
-    margin: auto;
-    width: 200px;
-    height: 264px;
-    border-radius: 10px;
-    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
-    z-index: -10;
-    pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  
-  .card::after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
-    transform: translate3d(0, 0, 0) scale(0.95);
-    filter: blur(20px);
-  }
-  
-  .heading {
-    font-size: 20px;
-    text-transform: capitalize;
-    font-weight: 700;
-  }
-  
-  .card p:not(.heading) {
-    font-size: 14px;
-  }
-  
-  .card p:last-child {
-    color: #e81cff;
-    font-weight: 600;
-  }
-  
-  .card:hover::after {
-    filter: blur(30px);
-  }
-  
-  .card:hover::before {
-    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
-  }
-  
-  
-  
-  .play-button {
-    background-color: black;
-    color: yellow;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .play-button:hover {
-    background-color: yellow;
-    color: black;
-  }
+  position: relative;
+  width: 250px;  /* Increased width */
+  height: 350px; /* Increased height */
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 40px;  /* Increased padding for a more spacious look */
+  gap: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -10px;
+  margin: auto;
+  width: 270px;  /* Adjusted to match the new width */
+  height: 370px;  /* Adjusted to match the new height */
+  border-radius: 12px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #4B0082 dbde 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.heading {
+  font-size: 22px;  /* Increased font size */
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.card p:not(.heading) {
+  font-size: 16px;  /* Increased font size for text */
+}
+
+.card p:last-child {
+  color: #e81cff;
+  font-weight: 600;
+}
+
+.card:hover::after {
+  filter: blur(30px);
+}
+
+.card:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+
+/* Updated Play Button Styles */
+.play-button {
+  background-color: #212121;
+  color: #e81cff;
+  border: none;
+  padding: 12px 18px;  /* Increased padding for a larger button */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;  /* Slightly increased font size */
+  margin-top: 15px;  /* Increased margin for better spacing */
+  position: relative; /* To position the ::before element */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.play-button::before {
+  content: ''; /* Empty content for border */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #e81cff; /* Add border color */
+  border-radius: 5px;  /* Make the border follow the button's rounded corners */
+  pointer-events: none; /* So that the border doesn't interfere with button clicks */
+  transition: all 0.3s ease; /* Smooth transition for border effects */
+}
+
+.play-button:hover {
+  background-color: #e81cff;
+  color: black;
+}
+
+.play-button:hover::before {
+  border-color:#212121;
+}
