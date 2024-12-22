@@ -18,11 +18,9 @@ const App = () => {
           <Route path="/room/:roomId" element={<RoomPage />} />
           <Route path="/document/:id" element={<TextEditor />} />
           <Route path="/GameLandingpage" element={<GamesLandingpage />} />
-          <Route
-            path="/"
-            element={<KanbanBoard />}
-            style={{ minHeight: "100vh", backgroundColor: "#222" }}
-          />
+          
+            <Route path="/" element={<KanbanBoard />} />
+          
         </Routes>
       </div>
     </div>
