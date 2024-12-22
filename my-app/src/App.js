@@ -12,15 +12,14 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <div>
+      <div style={{ height: "100vh" }}>
         <Routes>
           <Route path="/VideoHomePage" element={<HomePage />} />
           <Route path="/room/:roomId" element={<RoomPage />} />
           <Route path="/document/:id" element={<TextEditor />} />
           <Route path="/GameLandingpage" element={<GamesLandingpage />} />
-          
-            <Route path="/" element={<KanbanBoard />} />
-          
+
+          <Route path="/" element={<KanbanBoard />} />
         </Routes>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useRef, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
-
+import backgroundImage from "./wp2.webp";
 const RoomPage = () => {
     const { roomId } = useParams();
     const meetingRef = useRef(null);
@@ -38,7 +38,14 @@ const RoomPage = () => {
         myMeeting();
     }, [myMeeting]);
 
-    return <div ref={meetingRef} style={{ width: '100%', height: '100vh' }} />;
+    return <div ref={meetingRef} style={{
+              backgroundImage: `url(${backgroundImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              minHeight: "100vh",
+              alignContent:"center"
+            }} />;
 };
 
 export default RoomPage;

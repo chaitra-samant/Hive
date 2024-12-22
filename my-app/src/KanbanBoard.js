@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import axios from "axios";
 import "./KanbanBoard.css";
+import backgroundImage from "./wp1.webp";
 
 const KanbanBoard = () => {
   const [tasks, setTasks] = useState({
@@ -170,7 +171,7 @@ const KanbanBoard = () => {
               >
                 {(provided) => (
                   <div
-                    className={`kanban-task ${taskObj.color}`} // Add color class dynamically
+                    className={`kanban-task ${taskObj.color}`}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
@@ -219,10 +220,18 @@ const KanbanBoard = () => {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="kanban-container">
+      <div
+        className="kanban-container"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh",
+        }}
+      >
         <div className="kanban-body">
           <div className="kanban-left">
-            {/* New Task Section */}
             <div className="todo-card">
               <h2>Add Task</h2>
               <div className="new-task">
@@ -255,10 +264,9 @@ const KanbanBoard = () => {
             </div>
           </div>
 
-          {/* Calendar on the right */}
           <div className="kanban-right">
             <div className="calendar-card">
-              <h2>Calendar</h2>
+              <h2>Calendar - Dec 2024</h2>
               {renderCalendar()}
             </div>
           </div>
