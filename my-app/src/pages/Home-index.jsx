@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import './meetbutton.css';
+import backgroundImage from "./wp3.jpg";
 
 const HomePage = () => {
     const [value, setValue] = useState('');
@@ -17,11 +18,13 @@ const HomePage = () => {
     return (
         <div style={
             {
+              backgroundImage: `url(${backgroundImage})`,
                 display: 'flex',  
                 justifyContent: "center",
                 alignItems: "center",
                 // alignContent:"center"
-                height: "80vh"
+                height: "100vh",
+                backgroundColor: '#212121'
 
             }
         }>
@@ -38,6 +41,7 @@ const HomePage = () => {
         borderRadius: '1.5rem', // Optional, rounding the corners
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', // Subtle shadow effect
         padding: '10px', // Padding to add space inside the container
+        backgroundColor: '#F9E6CF'
       }}
     >
       <div
