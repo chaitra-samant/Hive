@@ -18,7 +18,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/google-docs-clone", {
 // Set up Socket.io server
 const io = new Server(3001, {
   cors: {
-    origin: "http://localhost:3000", // React front-end
+    origin: "http://localhost:3002", // React front-end
     methods: ["GET", "POST"],
   },
 });

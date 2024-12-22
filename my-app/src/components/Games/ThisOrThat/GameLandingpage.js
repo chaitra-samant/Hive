@@ -6,7 +6,11 @@ const GamesLandingPage = () => {
   const navigate = useNavigate();  // Initialize useNavigate hook
 
   const handleTicTacToeClick = () => {
-    navigate('/RealTimeTicTacToe');  // Navigate to Tic-Tac-Toe page when button is clicked
+    window.location.href = 'http://localhost:3000';  // Navigate to Tic-Tac-Toe page when button is clicked
+  };
+
+  const handleWordle = () => {
+    navigate('localhost:3001');  // Navigate to Tic-Tac-Toe page when button is clicked
   };
 
   return (
@@ -26,7 +30,7 @@ const GamesLandingPage = () => {
         <div className="card">
           <p className="heading">Wordle</p>
           <p>Guess the word in six tries!</p>
-          <button className="play-button">Play Now</button>
+          <button onClick={handleWordle} className="play-button">Play Now</button>
         </div>
       </div>
     </div>
